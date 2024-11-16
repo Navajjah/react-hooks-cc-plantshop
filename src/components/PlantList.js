@@ -1,20 +1,22 @@
 import React from "react";
 import PlantCard from "./PlantCard";
 
-function PlantList({plants}) {
+function PlantList({ data }) {
   return (
     <ul className="cards">
-      {plants.map((plant) => (
-        <PlantCard
-        key={plant.id}
-        id={plant.id}
-        name={plant.name}
-        image={plant.image}
-        price={plant.price}
-      />
-     ))}
-      </ul>
+      {data.map((item, index) => {
+        return (
+          <PlantCard
+            key={item.id || index}
+            image={item.image}
+            name={item.name}
+            price={item.price}
+          />
+        );
+      })}
+    </ul>
   );
 }
 
 export default PlantList;
+
